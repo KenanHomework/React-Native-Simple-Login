@@ -4,7 +4,7 @@ import KButton from "../crossComponents/KButton.js";
 import KDivider from "../crossComponents/KDivider.js";
 import FStateChange from "./FStateChange.js";
 
-export default function LoginForm({ handleChange, onSuccess }) {
+export default function LoginForm({ onSuccess, navigation }) {
   return (
     <View style={styles.container}>
       <FInput label={"Username"} />
@@ -22,7 +22,7 @@ export default function LoginForm({ handleChange, onSuccess }) {
       <FStateChange
         label={"New to CLubrick?"}
         changeLabel={"Create account."}
-        handleChange={handleChange}
+        handleChange={() => navigation.navigate("SignUp")}
       />
     </View>
   );

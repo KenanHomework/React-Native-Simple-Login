@@ -1,16 +1,48 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React, { useState } from "react";
-import Enter from "./screens/Enter.js";
-import SuccessModal from "./components/crossComponents/SuccessModal.js";
+import SignUp from "./screens/SingUp.js";
+import Login from "./screens/Login.js";
+import "react-native-gesture-handler";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Header from "./components/crossComponents/Header.js";
+
+const Stack = createStackNavigator();
 
 export default function App() {
   const [modal, setModal] = useState(null);
 
   return (
-    <View style={styles.container}>
-      <Enter onSuccess={setModal} />
-      <SuccessModal modal={modal} close={() => setModal(null)} />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Login"
+        screenOptions={{
+          headerStyle: {
+            // backgroundColor: "darkblue",
+          },
+          headerTintColor: "white",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+          headerLeft: () => null,
+        }}
+      >
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{
+            headerTitle: () => <Header title={"Login"} />,
+          }}
+        />
+        <Stack.Screen
+          name="SignUp"
+          component={SignUp}
+          options={{
+            headerTitle: () => <Header title={"SignUp"} />,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

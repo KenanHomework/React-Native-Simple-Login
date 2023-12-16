@@ -4,10 +4,10 @@
     "slug": "ReactNativeSimpleLogin",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo.png",
+    "icon": "./assets/logo_s.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logo.png",
+      "image": "./assets/logo_s.png",
       "resizeMode": "fit",
       "backgroundColor": "#3B49DF"
     },
@@ -17,14 +17,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logo.png",
-        "width": "100px",
-        "height": "100px",
+        "foregroundImage": "./assets/logo_s.png",
         "backgroundColor": "#3B49DF"
       }
     },
     "web": {
-      "favicon": "./assets/logo.png"
+      "favicon": "./assets/logo_s.png"
     }
   }
 }

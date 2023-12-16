@@ -4,13 +4,12 @@ import KButton from "../crossComponents/KButton.js";
 import KDivider from "../crossComponents/KDivider.js";
 import FStateChange from "./FStateChange.js";
 
-export default function SignUpForm({ handleChange, onSuccess }) {
+export default function SignUpForm({ onSuccess, navigation }) {
   return (
     <View style={styles.container}>
       <FInput label={"Username"} />
       <FInput label={"Email"} />
       <FInput label={"Password"} />
-      <FInput label={"Confirm Password"} />
       <KButton
         title={"Sign Up"}
         handlePress={() =>
@@ -24,7 +23,7 @@ export default function SignUpForm({ handleChange, onSuccess }) {
       <FStateChange
         label={"Already have an account?"}
         changeLabel={"Log in."}
-        handleChange={handleChange}
+        handleChange={() => navigation.navigate("Login")}
       />
     </View>
   );
