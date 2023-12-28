@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 import React, { useState } from "react";
 import SignUp from "./screens/SingUp.js";
 import Login from "./screens/Login.js";
+import Home from "./screens/Home.js";
 import "react-native-gesture-handler";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -11,6 +12,9 @@ const Stack = createStackNavigator();
 
 export default function App() {
   const [modal, setModal] = useState(null);
+
+  // SplashScreen.preventAutoHideAsync();
+  // setTimeout(SplashScreen.hideAsync, 5000);
 
   return (
     <NavigationContainer>
@@ -39,6 +43,13 @@ export default function App() {
           component={SignUp}
           options={{
             headerTitle: () => <Header title={"SignUp"} />,
+          }}
+        />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerTitle: () => <Header title={"Home"} />,
           }}
         />
       </Stack.Navigator>

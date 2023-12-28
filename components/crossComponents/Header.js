@@ -14,7 +14,7 @@ export default function Header({ title }) {
     >
       <Image
         style={{ width: 30, height: 30 }}
-        source={require("../../assets/logo_s.png")}
+        source={require("../../assets/logo.png")}
       />
       <Text style={{ color: "black", fontSize: 23, marginBottom: 4 }}>
         {title}

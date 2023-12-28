@@ -1,6 +1,12 @@
 import { StyleSheet, View, Text, TextInput } from "react-native";
 
-export default function FInput({ placeholder, label }) {
+export default function FInput({
+  placeholder,
+  label,
+  value,
+  onChange,
+  isDisabled,
+}) {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
@@ -8,6 +14,9 @@ export default function FInput({ placeholder, label }) {
         style={styles.input}
         keyboardType="default"
         placeholder={placeholder}
+        onChangeText={onChange}
+        value={value}
+        editable={isDisabled}
       />
     </View>
   );
