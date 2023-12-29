@@ -7,15 +7,34 @@ import "react-native-gesture-handler";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Header from "./components/crossComponents/Header.js";
+import AnimatedSplash from "react-native-animated-splash-screen";
 
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [modal, setModal] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   // SplashScreen.preventAutoHideAsync();
   // setTimeout(SplashScreen.hideAsync, 5000);
+  setTimeout(() => {
+    setLoading(true);
+  }, 1000);
 
+  return (
+    <AnimatedSplash
+      translucent={true}
+      isLoaded={loading}
+      logoImage={require("./assets/logo.png")}
+      backgroundColor={"#3B49DF"}
+      logoHeight={150}
+      logoWidth={150}
+    >
+      <Router />
+    </AnimatedSplash>
+  );
+}
+
+const Router = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -55,7 +74,7 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
